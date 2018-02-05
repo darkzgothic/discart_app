@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <title><%= title %></title>
+  <meta name="keywords" content="Shopping planning, Shopping bundles, Online Offers, Location">
+  <meta name="description" content="Make Your Shopping Fast. Discover Thousand Offers Around You.">
+
+  <!-- build:css assets/styles/styles.css -->
+  <link rel="stylesheet" href="temp/styles/styles.css">
+  <!-- endbuild -->
+
+  <!-- build:js assets/scripts/Vendor.js -->
+  <script src="/temp/scripts/Vendor.js"></script>
+  <!-- endbuild -->
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrapper">
+    <div class="site-header__logo">Discart</div>
+    <div class="site-header__menu-icon">
+      <div class="site-header__menu-icon__middle"></div>
+    </div>
+    <div class="site-header__menu-content">
+      <nav class="primary-nav primary-nav--pull-right">
+        <ul>
+          <li><a href="/" id="home-link">Home</a></li>
+          <li><a href="/auth" id="login-link">Login</a></li>
+          <li><a href="/auth" id="register-link">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="header-block">
+  <picture>
+      <source srcset="assets/images/hero--large.png 1920w, assets/images/hero--large-hi-dpi.png 3840w" media="(min-width: 1380px)">
+      <source srcset="assets/images/hero--medium.png 1380w, assets/images/hero--medium-hi-dpi.png 2760w" media="(min-width: 990px)">
+      <source srcset="assets/images/hero--small.png 990w, assets/images/hero--small-hi-dpi.png 1980w" media="(min-width: 640px)">
+
+      <img srcset="assets/images/hero--smaller.png 640w, assets/images/hero--smaller-hi-dpi.png 1280w" class="header-block__image">
+    </picture>
+    <div class="header-block__text-content">
+        <div class="wrapper">
+          <h1 class="header-block__title">Make Your Shopping Fast</h1>
+          <p><a class="btn btn--playstore" href="#"><img class="btn__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVEhL7ZW9LwRBGIfXRyIRIoKCBJUarSi1IqGU0/gvJCJUGtGpKVD5KEh0hIJe4d/xPDe7yUas27mb5Ar3JE/y3rvzm7Vjdybr8Qf7OBDKX/GaY5Kzh9uhzCZwGZdw3AZ4zTHJGcMvfMJbPMm9y3tec0xSpvABXcpRGz+wd4CP6NgkjOArruAMHmI/Flgf4TQ6xrFmOuYUN0PZ/L8+41DzV8D6Bb0mW2imIwbxLZRRvKPZaPrQN3YRr3AHJ7FRszZj1jmcqzbXeIb+5Zc2IjFj1jmcqxa+lTehzOZxN5RRmDErfnquREvmsHjKYfRlicWMWXEu52xJ+cbiLhVLOdPWjbv2xL2lrktbT9y1z0mKDeQDy8teFzNmozYQcZtzy3Pjb/fGZp0jassscIk85tZwFT3o1dpeVd9M7eWtYgOP8RMXcq3tVfXXMRnl47FOnYz/d+N79GD3bfXbLKjqJ2MWL/A8rwuq+j1KZNk3wAxRmKjw09MAAAAASUVORK5CYII="> Playstore</a></p> 
+        </div> 
+    </div>
+</div>
+
+<div class="page-section" id="sticky-header" data-matching-link="#introduction-link">
+  <div class="wrapper">
+    <div class="row row--gutters">
+      <div class="row__medium-8 row__medium-8--smaller">
+        <div class="generic-content-container">
+          <h2 class="headline">Here&rsquo;s how this app will help you&hellip;</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <a href="#">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Duis aute irure dolor in <strong>reprehenderit in</strong> voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          
+        </div>
+      </div>
+      <div class="row__medium-4 row__medium-4--larger">
+        <div class="wrapper wrapper--center">
+          <div>
+            <picture>
+              <img srcset="assets/images/feature-image.png 800w, assets/images/feature-image.png 1600w" alt="Our Founder">
+              
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="features" class="page-section page-section--blue page-section--paralax" data-matching-link="#features-link">
+    <div class="wrapper">
+      
+      <h2 class="section-title"><img class="section-title__icon" src="assets/images/icons/star.svg">App <strong>Features</strong></h2>
+
+      <div class="row row--gutters-large generic-content-container">
+        <div class="row__medium-6">
+          <div class="feature-item">
+            <img class="feature-item__icon" src="assets/images/icons/rain.svg">
+            <h3 class="feature-item__title">We&rsquo;ll Watch Offers For You</h3>
+            <p>Download our app and we&rsquo;ll send you a notice if it&rsquo;s about to rain in the next 20 minutes around your current location. A good rain can be refreshing, but sometimes you just want to stay dry.</p>
+          </div>
+
+
+          <div class="feature-item">
+            <img class="feature-item__icon" src="assets/images/icons/globe.svg">
+            <h3 class="feature-item__title">Get Notification About Offers</h3>
+            <p>We&rsquo;ve scoured the entire planet for the best retreats and beautiful vistas. If there&rsquo;s a corner of the world you want to escape to we know the most scenic and inspiring locations.</p>  
+          </div>
+        </div>
+        <div class="row__medium-6">
+            <div class="feature-item">
+              <img class="feature-item__icon" src="assets/images/icons/wifi.svg">
+              <h3 class="feature-item__title">Notify Offers Around You</h3>
+              <p>We only send you on trips to places we can personally vouch for as being amazing. Which means we&rsquo;ve mapped out where local wi-fi spots are and marked them in our app&rsquo;s map view.</p> 
+            </div>
+
+            <div class="feature-item">
+                <img class="feature-item__icon" src="assets/images/icons/fire.svg">
+                <h3 class="feature-item__title">Find Everything In Google Map</h3>
+                <p>Everytime you book an escape with us we send you a survival kit with the finest materials. The kit will allow you to setup a tent, start a fire, scratch your own back and lower your taxes.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-section">
+    <div class="wrapper">
+        <div class="generic-content-container">
+          <h1 class="headline headline--centered">Are you merchandiser? Want to give advertisement?</h1>
+          <p class="headline headline--centered-paragraph">You can give advertisement. Only you have to do is register yourself. Register today and start...</p>
+
+          <p><a class="btn btn--register" href="auth">Register</a></p> 
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="feedback" class="page-section page-section--purple page-section--paralax-bottom" data-matching-link="#feedback-link">
+  <div class="wrapper">
+    
+    <h2 class="section-title section-title--blue"><img class="section-title__icon" src="assets/images/icons/comment.svg">Give <strong>Feedback</strong></h2>
+
+    <div class="row row--gutters-large">
+      <div class="row__medium-6">
+        <div class="feedback">
+          <form class="form form__feedback">
+            <input type="text" name="" placeholder="Enter Your Name">
+            <input type="text" name="" placeholder="Enter Your Email">
+            <input type="text" name="" placeholder="Enter Your Phone Number">
+            <textarea placeholder="Type Your Feedback"></textarea>
+            <button class="btn btn--send">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="row__medium-6">
+        <div class="feedback">
+          <div class="wrapper wrapper--center">
+            <picture>
+              <img srcset="assets/images/hero--large.png 800w, assets/images/hero--large.png 1600w" alt="Our Founder">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Designed by <a href="facebook.com/darkzgothic1">Zahid Hasan</a></p>
+</footer>
+
+<!-- build:js assets/scripts/App.js -->
+  <script src="/temp/scripts/App.js"></script>
+  <!-- endbuild -->
+
+
+</body>
+	
+</html>

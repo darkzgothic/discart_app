@@ -1,0 +1,65 @@
+.btn {
+	background-color: $mainBlue;
+	color: #FFF;
+	text-decoration: none;
+	padding: .75rem 1rem;
+	display: inline-block;
+	transform: translateY(15px);
+
+	&__icon {
+		width: 25px;
+		height: 16px;
+		transform: translateX(-5px) translateY(3px);
+	}
+
+	&--post-ad {
+		background-color: transparent;
+		color: $mainBlue;
+		font-weight: 500;
+		border: 1px solid $mainBlue;
+		padding: 8px 8px;
+	}
+
+	&--update {
+		background-color: $mainBlue;
+		border: 1px solid $mainBlue;
+		color: #FFF;
+		padding: 8px 16px;
+		font-weight: 500;
+		margin-bottom: 2rem;
+	}
+
+	&--playstore {
+		background-color: transparent;
+		border: 1px solid $mainBlue;
+	}
+
+	&--register {
+		background-color: transparent;
+		border: 1px solid $mainBlue;
+		color: $mainBlue;
+		padding: 1rem 2rem;
+		font-weight: 500;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&--right {
+		float: right;
+		margin-right: 15px;
+	}
+
+	&--send {
+		background-color: $mainBlue;
+		border: 1px solid $mainBlue;
+		color: #FFF;
+		padding: 1rem 2rem;
+		font-weight: 500;
+		transform: translateY(0);
+		margin-bottom: 2rem;
+
+		@mixin atSmall {
+			margin-bottom: 0;
+		}
+	}
+}

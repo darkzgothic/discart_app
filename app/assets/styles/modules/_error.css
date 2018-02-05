@@ -1,0 +1,12 @@
+.error {
+
+    &__email {
+        float: right;
+        color: $mainRed;
+    }
+    
+    &__password {
+        float: right;
+        color: $mainRed;
+    }
+}

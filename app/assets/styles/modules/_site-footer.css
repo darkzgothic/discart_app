@@ -1,0 +1,10 @@
+.site-footer {
+	text-align: center;
+	font-weight: 500;
+	background-color: rgba($mainBlue, .2);
+	padding: 1rem 0;
+
+	a {
+		text-decoration: none;
+	}
+}

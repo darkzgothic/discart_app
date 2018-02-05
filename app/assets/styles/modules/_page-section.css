@@ -1,0 +1,56 @@
+.page-section {
+	padding: .875rem 0;
+	margin-bottom: 20px;
+
+	@mixin atMedium {
+		padding: 4.5rem 0;
+	}
+
+	&--less-top-margin {
+		padding: 0 0;
+	}
+
+	&--blue {
+		background-color: $mainBlue;
+		color: #FFF;
+	}
+
+	&--purple {
+		background-color: $mainPurple;
+		color: #FFF;
+	}
+
+	&--feedback {
+		
+	}
+
+	&--paralax {
+
+	    @mixin atSmall {
+	    	background-image: url("../../assets/images/paralax--background.jpg");
+
+		    min-height: 500px; 
+
+		    background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+	    
+		}
+	}
+
+	&--paralax-bottom {
+
+		@mixin atSmall {
+	    	background-image: url("../../assets/images/paralax2.jpg");
+
+		    min-height: 500px; 
+
+		    background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+	    
+		}
+	}    
+}

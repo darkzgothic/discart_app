@@ -1,0 +1,134 @@
+.site-header {
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+	padding-bottom: 10px;
+	transition: background-color .3s ease-out;
+
+	@mixin atMedium {
+		background-color: rgba($mainBlue, .3);
+		padding-bottom: 0;
+		position: fixed;
+
+	}
+
+	&--is-expanded {
+		background-color: rgba($mainBlue, .5);
+	}
+
+	&--dark {
+		background-color: rgba(23, 51, 72, .99);
+	}
+
+	&__logo {
+		position: absolute;
+		background-color: $mainBlue;
+		color: #FFF;
+		font-weight: 500;
+		font-size: 2rem;
+		top: 0;
+		padding: 25px 36px;
+		left: 50%;
+		transform: translateX(-50%) scale(.8);
+		transform-origin: 50% 0;
+		transition: transform .3s ease-out;
+
+		@mixin atMedium {
+			left: auto;
+			transform: translateX(0);
+			font-size: 3rem;
+
+			.site-header--dark & {
+				transform: scale(.40);
+			}
+		}
+	}
+
+	&__menu-icon--close-x {
+		&::before {
+			transform: rotate(45deg) scaleX(1.25);
+		}
+
+		.site-header__menu-icon__middle {
+			opacity: 0;
+			transform: scaleX(0);
+		}
+
+		&::after {
+			transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+		}
+	}
+
+	&__menu-icon {
+		width: 20px;
+		height: 19px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 10;
+
+		@mixin atMedium {
+			display: none;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: rgb(23, 51, 72);
+			transform-origin: 0 0;
+			transition: transform .3s ease-out;
+		}
+
+		&__middle {
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			transform-origin: 0 50%;
+			background-color: rgb(23, 51, 72);
+			transition: all .3s ease-out;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 16px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: rgb(23, 51, 72);
+			transform-origin: 0 100%;
+			transition: transform .3s ease-out;
+		}
+	}
+
+	&__menu-content {
+		opacity: 0;
+		padding-top: 75px;
+		text-align: center;
+		transition: all .3s ease-out;
+		position: relative;
+		z-index: -10;
+		transform: scale(1.2);
+
+		@mixin atMedium {
+			opacity: 1;
+			padding-top: 0;
+			z-index: 1;
+			transform: scale(1);
+		}
+
+		&--is-visible {
+			opacity: 1;
+			z-index: 1;
+			transform: scale(1);
+		}
+	}
+
+
+}
