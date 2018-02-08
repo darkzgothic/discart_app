@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "alertify": "^0.3.0",
+    "alertify.js": "^1.0.12",
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -20,8 +20,10 @@
     "lazysizes": "^4.0.1",
     "morgan": "~1.9.0",
     "normalize.css": "^7.0.0",
+    "password-validator": "^4.0.0",
     "picturefill": "^3.0.2",
     "serve-favicon": "~2.4.5",
+    "validator": "^9.4.0",
     "waypoints": "^4.0.1"
   },
   "devDependencies": {

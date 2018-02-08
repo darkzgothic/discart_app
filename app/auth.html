@@ -51,27 +51,33 @@
       <div class="row__medium-6">
         <h2 class="section-title section-title--blue">Login</h2>
         <div class="feedback">
-          <form class="form form__feedback" action="profile.html">
-            <input type="text" name="" placeholder="Enter Your Email">
-            <label class="error error__email">*Enter Valid Email</label>
-            <input type="password" name="" placeholder="Enter Your Password">
-            <label class="error error__password">*Enter Valid Email</label>
+          <form id="loginForm" class="form form__feedback" action="profile.html">
+            <input type="text" name="email_login" placeholder="Enter Your Email">
+            <label id="email_error" class="error error__email"></label>
+            <input type="password" name="pass_login" placeholder="Enter Your Password">
+            <label id="pass_error" class="error error__password"></label>
             <br><br>
-            <button class="btn btn--send">Login</button>
+            <button id="login_btn" class="btn btn--send">Login</button>
           </form>
         </div>
       </div>
       <div class="row__medium-6">
         <h2 class="section-title section-title--blue">Register</h2>
         <div class="feedback">
-          <form class="form form__feedback">
-            <input type="text" name="" placeholder="Enter Your Name">
-            <input type="text" name="" placeholder="Enter Your Email">
-            <input type="text" name="" placeholder="Enter Your Phone Number">
-            <input type="password" name="" placeholder="Enter Your Password">
-            <input type="password" name="" placeholder="Confirm Password">
-            <button class="btn btn--send">Register</button>
-          </form>
+          <div class="form form__feedback">
+            <input type="text" id="name_reg" placeholder="Enter Your Name">
+            <label id="name_error" class="error error__email"></label>
+            <input type="text" id="email_reg" placeholder="Enter Your Email">
+            <label id="email_error_reg" class="error error__email"></label>
+            <input type="text" id="phn_reg" placeholder="Enter Your Phone Number">
+            <label id="phn_error" class="error error__email"></label>
+            <input type="password" id="pass_reg" placeholder="Enter Your Password">
+            <label id="pass_error_reg" class="error error__email"></label>
+            <input type="password" id="cpass_reg" placeholder="Confirm Password">
+            <label id="cpass_error" class="error error__email"></label>
+            <br><br>
+            <button id="reg_btn" class="btn btn--send">Register</button>
+          </div>
         </div>
       </div>
     </div>
