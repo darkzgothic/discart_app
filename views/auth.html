@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title><%= title %></title>
   <meta name="keywords" content="Shopping planning, Shopping bundles, Online Offers, Location">
   <meta name="description" content="Make Your Shopping Fast. Discover Thousand Offers Around You.">
@@ -51,14 +52,14 @@
       <div class="row__medium-6">
         <h2 class="section-title section-title--blue">Login</h2>
         <div class="feedback">
-          <form id="loginForm" class="form form__feedback" action="profile.html">
-            <input type="text" name="email_login" placeholder="Enter Your Email">
+          <div id="loginForm" class="form form__feedback" action="profile.html">
+            <input type="text" id="email_login" placeholder="Enter Your Email">
             <label id="email_error" class="error error__email"></label>
-            <input type="password" name="pass_login" placeholder="Enter Your Password">
+            <input type="password" id="pass_login" placeholder="Enter Your Password">
             <label id="pass_error" class="error error__password"></label>
             <br><br>
-            <button id="login_btn" class="btn btn--send">Login</button>
-          </form>
+            <button id="login_btn" class="btn btn--send"><i id="loading_icon_login" class="fa fa-refresh fa-spin"></i> Login</button>
+          </div>
         </div>
       </div>
       <div class="row__medium-6">
@@ -76,7 +77,7 @@
             <input type="password" id="cpass_reg" placeholder="Confirm Password">
             <label id="cpass_error" class="error error__email"></label>
             <br><br>
-            <button id="reg_btn" class="btn btn--send">Register</button>
+            <button id="reg_btn" class="btn btn--send"><i id="loading_icon_reg" class="fa fa-refresh fa-spin"></i> Register</button>
           </div>
         </div>
       </div>

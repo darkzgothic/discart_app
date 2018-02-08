@@ -12455,14 +12455,62 @@ var Helper = function () {
                 this.passErrorReg = (0, _jquery2.default)("#pass_error_reg");
                 this.cpassError = (0, _jquery2.default)("#cpass_error");
 
-                this.regBtn = (0, _jquery2.default)("#reg_btn");
+                //Login
+                this.emailLogin = (0, _jquery2.default)("#email_login");
+                this.passLogin = (0, _jquery2.default)("#pass_login");
 
-                this.events();
+                this.emailError = (0, _jquery2.default)("#email_error");
+                this.passError = (0, _jquery2.default)("#pass_error");
+
+                this.regBtn = (0, _jquery2.default)("#reg_btn");
+                this.loginBtn = (0, _jquery2.default)("#login_btn");
+
+                this.loadingIcon = (0, _jquery2.default)("#loading_icon_reg");
+                this.loadingIconLogin = (0, _jquery2.default)("#loading_icon_login");
+
+                this.loadingIcon.hide();
+                this.loadingIconLogin.hide();
+
+                this.register();
+                this.login();
         }
 
         _createClass(Helper, [{
-                key: 'events',
-                value: function events() {
+                key: 'login',
+                value: function login() {
+                        var that = this;
+
+                        this.loginBtn.click(function () {
+                                that.emailError.hide();
+                                that.passError.hide();
+
+                                var data = {};
+                                data.email = that.emailLogin.val();
+                                data.pass = that.passLogin.val();
+
+                                var schema = new _passwordValidator2.default();
+                                schema.is().min(6);
+
+                                var emailE = _validator2.default.isEmail(data.email);
+                                var passE = schema.validate(data.pass);
+
+                                if (!emailE) {
+                                        that.emailError.show();
+                                        that.emailError.html("Enter Valid Email Address");
+                                        return;
+                                }
+                                if (!passE) {
+                                        that.passError.show();
+                                        that.passError.html("Passwords must be at least 6 chars long");
+                                        return;
+                                }
+
+                                that.loadingIconLogin.show();
+                        });
+                }
+        }, {
+                key: 'register',
+                value: function register() {
                         var that = this;
 
                         this.regBtn.click(function () {
@@ -12480,7 +12528,7 @@ var Helper = function () {
                                 data.cpass = that.cpass.val();
 
                                 var schema = new _passwordValidator2.default();
-                                schema.is().min(5);
+                                schema.is().min(6);
 
                                 var nameE = _validator2.default.isEmpty(data.name);
                                 var emailE = _validator2.default.isEmail(data.email);
@@ -12504,7 +12552,7 @@ var Helper = function () {
                                 }
                                 if (!passE) {
                                         that.passErrorReg.show();
-                                        that.passErrorReg.html("Passwords must be at least 5 chars long");
+                                        that.passErrorReg.html("Passwords must be at least 6 chars long");
                                         return;
                                 }
                                 if (data.pass != data.cpass) {
@@ -12512,6 +12560,8 @@ var Helper = function () {
                                         that.cpassError.html("Passwords not matched");
                                         return;
                                 }
+
+                                that.loadingIcon.show();
 
                                 _jquery2.default.ajaxSetup({
                                         headers: {
@@ -12525,11 +12575,20 @@ var Helper = function () {
                                         contentType: 'application/json',
                                         url: 'http://localhost:8000/register',
                                         success: function success(data) {
-                                                console.log('success');
-                                                console.log(data);
+                                                that.loadingIcon.hide();
+
+                                                if (data == "error") {
+                                                        that.emailErrorReg.show();
+                                                        that.emailErrorReg.html("Email already registered");
+                                                }
+                                                if (data == "success") {
+                                                        _alertify2.default.success("Registration Successful. Please Login");
+                                                        that.emailLogin.val(that.emailReg.val());
+                                                        that.passLogin.val(that.passReg.val());
+                                                }
                                         },
                                         error: function error(data) {
-                                                console.log('Error');
+                                                that.loadingIcon.hide();
                                                 console.log(data);
                                         }
                                 });

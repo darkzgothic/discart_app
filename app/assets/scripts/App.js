@@ -9,3 +9,4 @@ new RevealOnScroll($(".feedback"), "85%");
 var stickyHeader = new StickyHeader;
 var mobileMenu = new MobileMenu;
 var helper = new Helper;
+

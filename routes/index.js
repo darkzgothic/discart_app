@@ -30,15 +30,15 @@ router.get('/register', function(req, res, next){
   var pass = data.pass;
   var cpass = data.cpass;
 
-  var responseData = "success";
-
-  auth.createUserWithEmailAndPassword(email, pass).catch(function(error){
-    if(error.code == "auth/email-already-in-use"){
-      console.log("Used");
-    }
-  });
-  console.log(responseData);
-  res.send(responseData);
+  auth.createUserWithEmailAndPassword(email, pass)
+    .then(function(){
+      res.send("success");
+    })
+    .catch(function(error){
+      if(error.code == "auth/email-already-in-use"){
+        res.send("error");  
+      }
+    });
 });
 
 firebase.auth().onAuthStateChanged(firebaseUser => {

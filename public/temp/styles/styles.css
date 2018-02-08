@@ -735,6 +735,10 @@ a {
 		margin-bottom: 2rem;
 	}
 
+.btn--send__loading {
+			margin-left: 2rem;
+		}
+
 @media (min-width: 530px) {
 
 .btn--send {
