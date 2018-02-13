@@ -3,7 +3,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-  <title>Discart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <title><%= title %></title>
   <meta name="keywords" content="Shopping planning, Shopping bundles, Online Offers, Location">
   <meta name="description" content="Make Your Shopping Fast. Discover Thousand Offers Around You.">
 
@@ -39,7 +41,7 @@
 <div class="page-section">
     <div class="wrapper wrapper--top-margin">
         <div class="generic-content-container">
-          <h1 class="headline headline--centered">Hello <strong>Zahid Hasan</strong>, Good Morning</h1>
+          <h1 class="headline headline--centered">Hello <strong><%= user.name %></strong>, Good Morning</h1>
         </div>
     </div>
   </div>
@@ -61,34 +63,19 @@
       </div>
       <div class="row__medium-6">
         <div class="profile">
-         <form class="form">
+         <div class="form">
             <div class="profile__row">
-              <div class="profile__row--var">Email</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
+              <div class="profile__row--var">Name</div>
+              <div class="profile__row--val-edit"><input type="text" value="<%= user.name %>" id="name"></div>
+              <label id="name_error" class="error error__email"></label>
             </div>
             <div class="profile__row">
               <div class="profile__row--var">Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
+              <div class="profile__row--val-edit"><input type="text" value="<%= user.phn %>" id="phn"></div>
+              <label id="phn_error" class="error error__email"></label>
             </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-
-            <button class="btn btn--send btn--right">Update</button>
-         </form>
+            <button id="updateBtn" class="btn btn--send btn--right"><i id="loading_icon_update" class="fa fa-refresh fa-spin"></i> Update</button>
+          </div>
         </div>
       </div>
     </div>

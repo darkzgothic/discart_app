@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@google/maps": "^0.4.5",
     "alertify.js": "^1.0.12",
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
@@ -15,6 +16,7 @@
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
     "firebase": "^4.9.0",
+    "fs": "0.0.1-security",
     "jquery": "^3.3.0",
     "jquery-smooth-scroll": "^2.2.0",
     "lazysizes": "^4.0.1",

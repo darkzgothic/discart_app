@@ -88,6 +88,10 @@
             </div>
             <div class="box__address">
               Uttara Sector-12, House 8, Dhaka
+              <% var dat = JSON.stringify(companies) %>
+              <% var data = JSON.parse(dat) %>
+              <%- data[0].name %>
+                  
             </div>
             <div class="box__category">
               <strong>Category: </strong>Cloths

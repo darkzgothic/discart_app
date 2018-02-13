@@ -1018,6 +1018,9 @@ a {
 			float: left;
 			width: 20%;
 		}
+		.row__medium-12 {
+			width: 100%;
+		}
 	}
 
 .headline {
@@ -1345,6 +1348,12 @@ a {
 		}
 
 .profile__row--val-edit {
+			font-size: 1.2rem;
+			font-weight: 300
+		}
+
+.profile__row--val-lbl {
+			float: right;
 			font-size: 1.2rem;
 			font-weight: 300
 		}

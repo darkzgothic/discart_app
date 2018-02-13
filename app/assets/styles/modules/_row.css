@@ -60,5 +60,8 @@
 			float: left;
 			width: 20%;
 		}
+		&__medium-12 {
+			width: 100%;
+		}
 	}
 }

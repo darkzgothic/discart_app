@@ -27,6 +27,7 @@ gulp.task('watch', function(){
 		gulp.start('scriptsRefresh');
 		gulp.start('copyAppScript');
 		gulp.start('copyVendorScript');
+		gulp.start('copyMapScript');
 	});
 });
 
@@ -48,6 +49,11 @@ gulp.task('copyAppScript', function(){
 gulp.task('copyVendorScript', function(){
 	console.log('Scripts Copied');
 	return gulp.src('./app/temp/scripts/Vendor.js').pipe(gulp.dest('./public/temp/scripts'));
+});
+
+gulp.task('copyMapScript', function(){
+	console.log('Scripts Copied');
+	return gulp.src('./app/temp/scripts/Map.js').pipe(gulp.dest('./public/temp/scripts'));
 });
 
 gulp.task('cssInject', ['styles'], function(){

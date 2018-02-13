@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Ro6tq4pr5oNl_H2a1veIwOMGo03yA78&libraries=places&callback=initMap"
+    async defer></script>
+
+
   <title>Discart</title>
   <meta name="keywords" content="Shopping planning, Shopping bundles, Online Offers, Location">
   <meta name="description" content="Make Your Shopping Fast. Discover Thousand Offers Around You.">
@@ -16,99 +23,240 @@
   <!-- endbuild -->
 
 </head>
+
 <body>
+  <style>
+    #map {
+      width: 100%;
+      height: 400px;
+    }
 
-<header class="site-header">
-  <div class="wrapper">
-    <div class="site-header__logo">Discart</div>
-    <div class="site-header__menu-icon">
-      <div class="site-header__menu-icon__middle"></div>
-    </div>
-    <div class="site-header__menu-content">
-      <nav class="primary-nav primary-nav--pull-right">
-        <ul>
-          <li><a href="index.html" id="home-link">Home</a></li>
-          <li><a href="profile.html" id="login-link">Profile</a></li>
-          <li><a href="logout.html" id="register-link">Logout</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+    .controls {
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
 
-<div class="page-section">
+    #searchInput {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 50%;
+    }
+
+    #searchInput:focus {
+      border-color: #4d90fe;
+    }
+  </style>
+
+  <header class="site-header">
+    <div class="wrapper">
+      <div class="site-header__logo">Discart</div>
+      <div class="site-header__menu-icon">
+        <div class="site-header__menu-icon__middle"></div>
+      </div>
+      <div class="site-header__menu-content">
+        <nav class="primary-nav primary-nav--pull-right">
+          <ul>
+            <li>
+              <a href="index.html" id="home-link">Home</a>
+            </li>
+            <li>
+              <a href="profile.html" id="login-link">Profile</a>
+            </li>
+            <li>
+              <a href="logout.html" id="register-link">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-section">
     <div class="wrapper wrapper--top-margin">
-        <div class="generic-content-container">
-          <h1 class="headline headline--centered">Hello <strong>Zahid Hasan</strong>, Good Morning</h1>
-        </div>
-    </div>
-  </div>
-</div>
-
-<div id="sticky-header" class="page-section page-section--less-top-margin">
-  <div class="wrapper">
-    <div class="row row--gutters-large">
-      <div class="row__medium-4">
-        <div class="sidenav">
-          <a href="profile.html">Profile</a>
-          <a href="edit-profile.html">Edit Profile</a>
-          <a href="change-password.html">Change Password</a>
-          <a href="#clients">Create Company Profile</a>
-          <a href="#clients">Create Company Profile</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="row__medium-6">
-        <div class="profile">
-         <form class="form">
-            <div class="profile__row">
-              <div class="profile__row--var">Business Title</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Business Phone Number</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Business Address</div>
-              <div class="profile__row--val-edit"><input type="text" name=""></div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Business Category</div>
-              <div class="profile__row--val-edit">
-                <select class="form form--select">
-                  <option>Food</option>
-                  <option>Shoe</option>
-                  <option>Cloths</option>
-                </select>
-              </div>
-            </div>
-            <div class="profile__row">
-              <div class="profile__row--var">Select Businee Exact Location</div>
-              <div class="profile__row--val-edit">
-                <iframe width="100%" height="450" frameborder="0" style="border: 0; margin-top: 20px;" src="https://www.google.com/maps/embed/v1/place?q=23.810332,90.41251809999994&amp;key=AIzaSyBmkR5yWgxBLz4DazkbRSOmqXEf0giPOaE"></iframe>
-              </div>
-            </div>
-            
-
-            <button class="btn btn--send btn--right">Create</button>
-         </form>
-        </div>
+      <div class="generic-content-container">
+        <h1 class="headline headline--centered">Hello
+          <strong>Zahid Hasan</strong>, Good Morning</h1>
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-<footer class="site-footer">
-  <p>Designed by <a href="facebook.com/darkzgothic1">Zahid Hasan</a></p>
-</footer>
+  <div id="sticky-header" class="page-section page-section--less-top-margin">
+    <div class="wrapper">
+      <div class="row row--gutters-large">
+        <div class="row__medium-4">
+          <div class="sidenav">
+            <a href="profile.html">Profile</a>
+            <a href="edit-profile.html">Edit Profile</a>
+            <a href="change-password.html">Change Password</a>
+            <a href="#clients">Create Company Profile</a>
+            <a href="#clients">Create Company Profile</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="row__medium-6">
+          <div class="profile">
+            <div class="form">
+              <div class="profile__row">
+                <div class="profile__row--var">Business Title</div>
+                <div class="profile__row--val-edit">
+                  <input type="text" id="title">
+                </div>
+                <label id="title_error" class="error error__email"></label>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Business Phone Number</div>
+                <div class="profile__row--val-edit">
+                  <input type="text" id="phn">
+                </div>
+                <label id="phn_error" class="error error__email"></label>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Business Address</div>
+                <div class="profile__row--val-edit">
+                  <input type="text" id="address">
+                </div>
+                <label id="address_error" class="error error__email"></label>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Business Category</div>
+                <div class="profile__row--val-edit">
+                  <select id="category" class="form form--select">
+                    <option>Food</option>
+                    <option>Shoe</option>
+                    <option>Cloths</option>
+                  </select>
+                </div>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Select Businee Exact Location</div><label id="location_error" class="error error__email"></label>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="row__medium-12">
+          <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+          <div id="map"></div>
+        </div>
+        <div class="row__medium-4">&nbsp;</div>
+        <div class="row__medium-6">
+          <div class="profile">
+            <div class="form">
+              <div class="profile__row">
+                <div class="profile__row--var">Location</div>
+                <div class="profile__row--val-lbl">
+                  <label id="location"> </label>
+                </div>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Latitude</div>
+                <div class="profile__row--val-lbl">
+                  <label id="lat"></label>
+                </div>
+              </div>
+              <div class="profile__row">
+                <div class="profile__row--var">Longtitude</div>
+                <div class="profile__row--val-lbl">
+                  <label id="lon"></label>
+                </div>
+              </div>
 
-<!-- build:js assets/scripts/App.js -->
+              <button id="createBtn" class="btn btn--send btn--right"><i id="loading_icon_create" class="fa fa-refresh fa-spin"></i> Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <p>Designed by
+      <a href="facebook.com/darkzgothic1">Zahid Hasan</a>
+    </p>
+  </footer>
+
+
+  <!-- build:js assets/scripts/App.js -->
   <script src="/temp/scripts/App.js"></script>
   <!-- endbuild -->
 
+  <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 23.810332, lng: 90.412518 },
+        zoom: 13
+      });
+      var geocoder = new google.maps.Geocoder();
+
+      var input = document.getElementById('searchInput');
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo('bounds', map);
+
+      var marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        anchorPoint: new google.maps.Point(0, -29)
+      });
+
+      autocomplete.addListener('place_changed', function () {
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          window.alert("Autocomplete's returned place contains no geometry");
+          return;
+        }
+
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(16);
+        };
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        var address = '';
+        if (place.address_components) {
+          address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+          ].join(' ');
+        }
+        document.getElementById('location').innerHTML = place.formatted_address;
+        document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+      });
+
+      google.maps.event.addListener(marker, "dragend", function () {
+        var point = marker.getPosition();
+        geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            document.getElementById('location').innerHTML = results[0].formatted_address;
+            document.getElementById('lat').innerHTML = marker.getPosition().lat();
+            document.getElementById('lon').innerHTML = marker.getPosition().lng();
+          }
+        });
+      });
+    }
+  </script>
 
 </body>
-  
+
 </html>

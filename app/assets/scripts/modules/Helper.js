@@ -33,18 +33,87 @@ class Helper {
                 this.loadingIcon.hide();
                 this.loadingIconLogin.hide();
                 
+
+                //Update
+                this.uName = $("#name");
+                this.uPhn = $("#phn");
+                this.uNameError = $("#name_error");
+                this.uPhnError = $("#phn_error");
+                this.updateBtn = $("#updateBtn");
+                this.loadingIconUpdate = $("#loading_icon_update");
+
+                this.loadingIconUpdate.hide();
+
                 this.register();
                 this.login();
+                this.update();
 
+        }
 
+        update() {
+                var that = this;
+
+                this.updateBtn.click(function(){
+                        that.uNameError.html("");     
+                        that.uPhnError.html("");   
+                        
+                        var data = {};
+                        data.name = that.uName.val();
+                        data.phn = that.uPhn.val();
+
+                        var nameE = validator.isEmpty(data.name);
+                        var phnE = validator.isNumeric(data.phn);
+
+                        if(nameE){
+                                that.uNameError.html("Name Can't be Empty");
+                                return; 
+                        }
+                        if(!phnE){
+                                that.uPhnError.html("Enter Valid Phone Number");
+                                return;
+                        }
+
+                        that.loadingIconUpdate.show();
+
+                        $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                }
+                        });
+
+                        $.ajax({
+                                typye: 'GET',
+                                data: data,
+                                contentType: 'application/json',
+                                url: 'http://localhost:8000/user/update',						
+                                success: function(data) {
+                                        that.loadingIconUpdate.hide();
+
+                                        if(data == "error"){
+                                                that.loadingIconUpdate.hide();
+                                                alertify.error("Something Wrong.. Try again");
+                                                console.log(data);
+                                        }
+                                        if(data == "success"){
+                                                alertify.success("Profile Successfully Updated");
+                                        }
+                                },
+                                error: function(data) {
+                                        that.loadingIconUpdate.hide();
+                                        alertify.error("Something Wrong.. Try again");
+                                        console.log(data);
+                                }
+                        });
+
+                });
         }
 
         login(){
                 var that = this;
 
                 this.loginBtn.click(function(){
-                        that.emailError.hide();
-                        that.passError.hide();
+                        that.emailError.html("");
+                        that.passError.html("");
 
                         var data = {};
                         data.email = that.emailLogin.val();
@@ -57,17 +126,56 @@ class Helper {
                         var passE = schema.validate(data.pass);
 
                         if(!emailE){
-                                that.emailError.show();
+                                // that.emailError.show();
                                 that.emailError.html("Enter Valid Email Address");
                                 return; 
                         }
                         if(!passE){
-                                that.passError.show();
+                                // that.passError.show();
                                 that.passError.html("Passwords must be at least 6 chars long");
                                 return;        
                         }
 
                         that.loadingIconLogin.show();
+
+                        $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                }
+                        });
+
+                        $.ajax({
+                                typye: 'GET',
+                                data: data,
+                                contentType: 'application/json',
+                                url: 'http://localhost:8000/auth/login',						
+                                success: function(data) {
+                                        that.loadingIconLogin.hide();
+
+                                        if(data.error == "error"){
+                                                if(data.msg == "Wrong Password"){
+                                                        that.passError.html("Wrong Password");
+                                                }
+                                                if(data.msg == "User Not Found"){
+                                                        that.emailError.html("User Not Found");
+                                                }
+                                                if(data.msg == "Invalid Email"){
+                                                        that.emailError.html("Invalid Email");
+                                                }
+                                        }
+                                        if(data == "success"){
+                                                console.log("Success Login");
+                                                window.location = "profile";
+                                        }
+                                },
+                                error: function(data) {
+                                        that.loadingIconLogin.hide();
+                                        alertify.error("Something Wrong.. Try again");
+                                        console.log(data);
+                                }
+                        });
+
+                        console.log(data);
                 });
         }
 
@@ -75,11 +183,11 @@ class Helper {
                 var that = this;
 
                 this.regBtn.click(function(){
-                        that.nameError.hide();
-                        that.emailErrorReg.hide();
-                        that.phnError.hide();
-                        that.passErrorReg.hide();
-                        that.cpassError.hide();
+                        that.nameError.html("");
+                        that.emailErrorReg.html("");
+                        that.phnError.html("");
+                        that.passErrorReg.html("");
+                        that.cpassError.html("");
 
                         var data = {};
                         data.name = that.name.val();
@@ -97,27 +205,27 @@ class Helper {
                         var passE = schema.validate(data.pass);
 
                         if(nameE){
-                                that.nameError.show();
+                                // that.nameError.show();
                                 that.nameError.html("Name Can't Be Empty");
                                 return;        
                         }
                         if(!emailE){
-                                that.emailErrorReg.show();
+                                // that.emailErrorReg.show();
                                 that.emailErrorReg.html("Enter Valid Email Address");
                                 return;        
                         }
                         if(!phnE){
-                                that.phnError.show();
+                                // that.phnError.show();
                                 that.phnError.html("Enter Valid Phone Number");
                                 return;        
                         }
                         if(!passE){
-                                that.passErrorReg.show();
+                                // that.passErrorReg.show();
                                 that.passErrorReg.html("Passwords must be at least 6 chars long");
                                 return;        
                         }
                         if(data.pass != data.cpass){
-                                that.cpassError.show();
+                                // that.cpassError.show();
                                 that.cpassError.html("Passwords not matched");
                                 return;        
                         }
@@ -134,12 +242,12 @@ class Helper {
                                 typye: 'GET',
                                 data: data,
                                 contentType: 'application/json',
-                                url: 'http://localhost:8000/register',						
+                                url: 'http://localhost:8000/auth/register',						
                                 success: function(data) {
                                         that.loadingIcon.hide();
 
                                         if(data == "error"){
-                                                that.emailErrorReg.show();
+                                                // that.emailErrorReg.show();
                                                 that.emailErrorReg.html("Email already registered");
                                         }
                                         if(data == "success"){
